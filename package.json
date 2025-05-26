@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "ecommerce-client",
   "private": true,
   "type": "module",
   "scripts": {
