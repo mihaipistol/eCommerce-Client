@@ -1,7 +1,11 @@
 {
   "name": "ecommerce-client",
+  "version": "0.1.0",
+  "description": "Client application for an e-commerce",
   "private": true,
   "type": "module",
+  "author": "Mihai Pistol",
+  "license": "ISC",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
@@ -11,6 +15,7 @@
   "dependencies": {
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
+    "axios": "^1.9.0",
     "isbot": "^5.1.27",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -22,9 +27,104 @@
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.4.0",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3",
     "vite": "^6.3.3",
     "vite-tsconfig-paths": "^5.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mihaipistol/eCommerce-Client.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm lint",
+      "pre-push": "npm-test"
+    }
+  },
+  "eslintConfig": {
+    "globals": {
+      "NodeJS": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.js",
+          "*.mjs",
+          "*.jsx",
+          "*.ts",
+          "*.tsx"
+        ],
+        "rules": {
+          "@typescript-eslint/": "off",
+          "@typescript-eslint/ban-ts-comments": "off",
+          "@typescript-eslint/ban-ts-ignore": "off",
+          "@typescript-eslint/class-name-casting": "off",
+          "@typescript-eslint/explicit-module-boundry-type": "off",
+          "@typescript-eslint/interface-name-prefix": "off",
+          "@typescript-eslint/member-delimiter-style": "off",
+          "@typescript-eslint/no-unused-vars": "warn",
+          "@typescript-eslint/no-use-before-define": "off",
+          "@typescript-eslint/no-var-requires": "off",
+          "consistent-return": "off",
+          "eslint-plugin-import/no-unresolved": "off",
+          "import/extensions": "off",
+          "import/prefer-default-export": "off",
+          "jsx-a11y/anchor-is-valid": "off",
+          "jsx-a11y/click-events-have-key-events": "off",
+          "jsx-a11y/label-has-asociated-control": "off",
+          "jsx-a11y/no-noninteractive-element-interactions": "off",
+          "jsx-a11y/no-static-element-interactions": "off",
+          "max-len": [
+            "error",
+            {
+              "code": 80,
+              "tabWidth": 2
+            }
+          ],
+          "no-extraneous-dependencies": "off",
+          "no-param-reassign": "off",
+          "no-prototype-builtins": "off",
+          "no-restricted-syntax": "off",
+          "no-undef": "off",
+          "no-underscore-dangle": "off",
+          "no-unused-vars": "off",
+          "no-use-before-definex": "off",
+          "prettier/prettier": [
+            "error",
+            {
+              "endOfLine": "auto"
+            }
+          ]
+        }
+      }
+    ],
+    "rules": {
+      "no-empty": [
+        "error",
+        {
+          "allowEmptyCatch": true
+        }
+      ]
+    }
   }
 }
