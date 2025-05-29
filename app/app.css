@@ -1,13 +1,31 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --color-primary: #3b82f6; /* blue-500 */
+  --color-secondary: #f59e0b; /* amber-500 */
+  --color-accent: #10b981; /* emerald-500 */
+  --color-background: #f3f4f6; /* gray-100 */
+  --color-text: #111827; /* gray-900 */
+  --color-border: #d1d5db; /* gray-300 */
+  --color-muted: #6b7280; /* gray-500 */
+  --color-success: #16a34a; /* green-600 */
+  --color-warning: #d97706; /* amber-600 */
+  --color-error: #dc2626; /* red-600 */
+  --color-info: #2563eb; /* blue-600 */
+  --color-link: #3b82f6; /* blue-500 */
+  --color-link-hover: #2563eb; /* blue-600 */
+  --color-link-active: #1d4ed8; /* blue-700 */
+  --color-link-visited: #4f46e5; /* indigo-600 */
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-dark: rgba(0, 0, 0, 0.2);
 }
 
 @layer components {
   .btn-primary {
-    @apply px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:bg-blue-400 transition-colors;
+    @apply px-4 py-2 bg-primary text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:bg-muted transition-colors;
   }
 }
 

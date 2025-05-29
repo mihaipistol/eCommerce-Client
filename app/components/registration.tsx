@@ -1,60 +1,159 @@
-import Card from './base/card';
-import Input from './base/input';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm, type SubmitHandler } from 'react-hook-form';
+import z from 'zod';
+
+// Define the schema using zod
+const schema = z
+  .object({
+    firstName: z
+      .string()
+      .min(1, { message: 'First name is required asd asd asd sd sa das sad ' }),
+    lastName: z.string().min(1, { message: 'Last name is required' }),
+    email: z
+      .string()
+      .email({ message: 'Invalid email address' })
+      .nonempty({ message: 'Email is required' }),
+    phoneNumber: z
+      .string()
+      .regex(/^\+?[0-9\s\-()]+$/, { message: 'Invalid phone number' })
+      .nonempty({ message: 'Phone number is required' }),
+    password: z
+      .string()
+      .min(6, { message: 'Password must be at least 6 characters long' })
+      .nonempty({ message: 'Password is required' }),
+    confirmPassword: z
+      .string()
+      .min(6, {
+        message: 'Confirm password must be at least 6 characters long',
+      })
+      .nonempty({ message: 'Confirm password is required' }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: 'Passwords do not match',
+    path: ['confirmPassword'],
+  });
+
+type FormFields = z.infer<typeof schema>;
 
 export default function RegistrationCard() {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors, isSubmitted, isSubmitting, isValid, isDirty },
+  } = useForm<FormFields>({
+    mode: 'onBlur', // Validate on blur
+    resolver: zodResolver(schema), // Use zod for validation
+    defaultValues: {},
+  });
+
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    try {
+      // Simulate an API call or some processing
+      if (data.firstName === 'error') {
+        throw new Error('Simulated error for demonstration');
+      }
+      // Simulate form submission
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Log the form data to the console
+      console.log('Form submitted:', data);
+      // Here you can handle the form submission, e.g., send data to an API
+    } catch (error) {
+      // Handle errors, e.g., set a form error
+      setError('confirmPassword', {
+        type: 'manual',
+        message: 'An error occurred while submitting the form',
+      });
+    }
+  };
+
   return (
-    <Card className='xl:w-full m-10'>
-      <form>
-        <div className='flex flex-col items-center justify-center space-y-4'>
-          <h1 className='text-2xl font-bold'>Register</h1>
-          <p className='text-gray-600'>Please fill in your details.</p>
-          <Input
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className='flex flex-col items-center space-y-6'
+    >
+      <h1 className='text-2xl font-bold'>Register</h1>
+      <p className='text-gray-600'>Please fill in your details.</p>
+      <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
+        <label className='flex flex-col'>
+          <span className='flex justify-between'>
+            <span className='text-sm font-medium'>First Name</span>
+            {errors.firstName && (
+              <span className='text-error text-sm'>
+                {errors.firstName.message}
+              </span>
+            )}
+          </span>
+          <input
             type='text'
-            label='First Name'
-            placeholder='name'
-            required
-            className='w-64'
+            {...register('firstName')}
+            className={`px-4 py-2 border rounded w-full placeholder:opacity-60 ${
+              errors.firstName ? 'border-error' : 'border-border'
+            }`}
+            placeholder='Enter your first name'
+            autoFocus
           />
-          <Input
+        </label>
+
+        <label className='flex flex-col'>
+          <span className='text-sm font-medium'>Last Name</span>
+          <input
             type='text'
-            label='Last Name'
-            placeholder='surname'
-            required
-            className='w-64'
+            {...register('lastName')}
+            className={`px-4 py-2 border rounded w-full placeholder:opacity-60 ${
+              errors.lastName ? 'border-red-500' : 'border-gray-300'
+            }`}
+            placeholder='Enter your last name'
           />
-          <Input
+        </label>
+        <label className='flex flex-col'>
+          <span className='text-sm font-medium'>Email</span>
+          <input
             type='email'
-            label='Email'
-            placeholder='email'
-            required
-            className='w-64'
+            {...register('email')}
+            className={`px-4 py-2 border rounded w-full placeholder:opacity-60 ${
+              errors.email ? 'border-red-500' : 'border-gray-300'
+            }`}
+            placeholder='Enter your email'
           />
-          <Input
+        </label>
+        <label className='flex flex-col'>
+          <span className='text-sm font-medium'>Phone Number</span>
+          <input
             type='tel'
-            label='Phone Number'
-            placeholder='123-456-7890'
-            required
-            className='w-64'
+            {...register('phoneNumber')}
+            className={`px-4 py-2 border rounded w-full placeholder:opacity-60 ${
+              errors.phoneNumber ? 'border-red-500' : 'border-gray-300'
+            }`}
+            placeholder='Enter your phone number'
           />
-          <Input
+        </label>
+        <label className='flex flex-col'>
+          <span className='text-sm font-medium'>Password</span>
+          <input
             type='password'
-            label='Password'
-            placeholder='*********'
-            required
-            className='w-64'
+            {...register('password')}
+            className={`px-4 py-2 border rounded w-full placeholder:opacity-60 ${
+              errors.password ? 'border-red-500' : 'border-gray-300'
+            }`}
+            placeholder='Enter your password'
           />
-          <Input
+        </label>
+        <label className='flex flex-col'>
+          <span className='text-sm font-medium'>Confirm Password</span>
+          <input
             type='password'
-            label='Confirm Password'
-            placeholder='*********'
-            required
-            className='w-64'
+            {...register('confirmPassword')}
+            className={`px-4 py-2 border rounded w-full placeholder:opacity-60 ${
+              errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
+            }`}
+            placeholder='Confirm your password'
           />
-          <button type='submit' className='btn-primary'>
-            Register
-          </button>
-        </div>
-      </form>
-    </Card>
+        </label>
+      </div>
+      <button type='submit' className='btn-primary' disabled={isSubmitting}>
+        Register
+      </button>
+    </form>
   );
 }

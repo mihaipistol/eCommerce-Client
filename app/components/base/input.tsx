@@ -1,9 +1,12 @@
+import { on } from 'events';
+import type { r } from 'node_modules/@react-router/dev/dist/routes-DHIOx0R9';
+
 interface InputProps {
   type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search';
   label?: string;
   placeholder?: string;
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   className?: string;
   required?: boolean;
@@ -32,12 +35,13 @@ export default function Input({
   pattern,
   name,
   id,
+  ...rest
 }: InputProps) {
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
-      <div className='flex justify-between'>
+      <div className='flex justify-end items-center'>
         {label && (
-          <label htmlFor={id} className='text-sm font-medium'>
+          <label htmlFor={id} className='text-sm font-medium w-full'>
             {label}
           </label>
         )}
@@ -47,9 +51,9 @@ export default function Input({
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => onChange && onChange(e.target.value)}
+        onChange={onChange}
         disabled={disabled}
-        className={`px-4 py-2 border rounded w-full`}
+        className={`px-4 py-2 border rounded w-full placeholder:opacity-60`}
         required={required}
         autoFocus={autoFocus}
         maxLength={maxLength}
@@ -57,6 +61,7 @@ export default function Input({
         pattern={pattern}
         name={name}
         id={id}
+        {...rest}
       />
     </div>
   );
