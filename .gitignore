@@ -1,9 +1,6 @@
 .DS_Store
 /node_modules/
 
-.env
-app.yaml
-
 # React Router
 /.react-router/
 /build/

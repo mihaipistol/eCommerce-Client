@@ -1,4 +1,4 @@
-import RegistrationCard from '~/components/registration';
+import RegistrationCard from '~/components/forms/registration';
 import type { Route } from './+types/register';
 import Card from '~/components/base/card';
 
