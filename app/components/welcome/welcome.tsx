@@ -42,6 +42,14 @@ export function Welcome() {
                   Login form
                 </Link>
               </li>
+              <li>
+                <Link
+                  to='/comments'
+                  className='text-blue-600 dark:text-blue-400 hover:underline'
+                >
+                  Comments form
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
