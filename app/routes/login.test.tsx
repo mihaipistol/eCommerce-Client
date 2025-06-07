@@ -1,17 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import Login from './login';
 
 describe('Login Component', () => {
-  test('TextEncoder is defined', () => {
-    expect(() => new TextEncoder()).not.toThrow();
-  });
-
   test('renders login form', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter initialEntries={['/login']}>
         <Login />
-      </BrowserRouter>
+      </MemoryRouter>
     );
 
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();

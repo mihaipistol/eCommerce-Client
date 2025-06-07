@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import LoginCard from '~/components/login';
-import type { Route } from './+types/login';
 import { config } from '~/config';
+import type { Route } from './+types/login';
+import { useNavigate } from 'react-router';
 
 export function meta({}: Route.MetaArgs) {
   return [
