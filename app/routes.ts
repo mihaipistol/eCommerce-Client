@@ -5,4 +5,5 @@ export default [
   route('login', 'routes/login.tsx'),
   route('register', 'routes/register.tsx'),
   route('form', 'routes/form.tsx'),
+  route('comments', 'routes/comments.tsx'),
 ] satisfies RouteConfig;

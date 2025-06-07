@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import z from 'zod';
+import { config } from '~/config';
 
 const schema = z
   .object({
@@ -94,10 +95,7 @@ export default function RegistrationCard() {
         throw new Error('Simulated error for demonstration');
       }
       // Simulate form submission
-      const result = await axios.post(
-        `${import.meta.env.VITE_API_ENDPOINT}/users`,
-        data
-      );
+      const result = await axios.post(`${config.API_ENDPOINT}/users`, data);
       // Log the form data to the console
       console.log('Form submitted:', result);
       // Here you can handle the form submission, e.g., send data to an API

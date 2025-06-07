@@ -20,30 +20,37 @@ export function Welcome() {
             />
           </div>
         </header>
-        <div className='max-w-[300px] w-full space-y-6 px-4'>
-          <nav className='rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4'>
-            <p className='leading-6 text-gray-700 dark:text-gray-200 text-center'>
-              What&apos;s next?
-            </p>
-            <ul>
-              <li>
-                <Link
-                  to='/register'
-                  className='text-blue-600 dark:text-blue-400 hover:underline'
-                >
-                  Registration form
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to='/login'
-                  className='text-blue-600 dark:text-blue-400 hover:underline'
-                >
-                  Login form
-                </Link>
-              </li>
-            </ul>
-          </nav>
+        <div className='flex flex-wrap gap-4 justify-center'>
+          <div>Item 1</div>
+          <div>Item 2</div>
+          <div>Item 3</div>
+          <div>Item 4</div>
+          <div>Item 5</div>
+          <div>Item 6</div>
+          <div>Item 7</div>
+          <div>Item 8</div>
+          <div>Item 9</div>
+          <div>Item 10</div>
+          <div>Item 11</div>
+          <div>Item 12</div>
+          <div>Item 13</div>
+          <div>Item 14</div>
+          <div>Item 15</div>
+          <div>Item 16</div>
+          <div>Item 17</div>
+          <div>Item 18</div>
+          <div>Item 19</div>
+          <div>Item 20</div>
+          <div>Item 21</div>
+          <div>Item 22</div>
+          <div>Item 23</div>
+          <div>Item 24</div>
+          <div>Item 25</div>
+          <div>Item 26</div>
+          <div>Item 27</div>
+          <div>Item 28</div>
+          <div>Item 29</div>
+          <div>Item 30</div>
         </div>
       </div>
     </main>

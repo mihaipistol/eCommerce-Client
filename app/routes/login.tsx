@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import LoginCard from '~/components/login';
+import { config } from '~/config';
 import type { Route } from './+types/login';
+import { useNavigate } from 'react-router';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -20,7 +21,7 @@ export default function Page() {
   const handleLogin = async () => {
     setStatus('loading');
     const result = await axios
-      .post(`${import.meta.env.VITE_API_ENDPOINT}/authentication/login`, {
+      .post(`${config.API_ENDPOINT}/authentication/login`, {
         email: email,
         password: password,
       })

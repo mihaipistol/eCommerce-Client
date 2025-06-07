@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import Card from './card';
+import Card from '~/components/base/old/card';
 
 describe('Card', () => {
   it('renders children correctly', () => {
     render(<Card>Test Content</Card>);
-    expect(screen.getByText('Test Content')).toBeDefined();
+    expect(screen.getByText('Test Content')).toBeInTheDocument();
   });
 
   it('applies custom class names', () => {

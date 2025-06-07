@@ -1,4 +1,4 @@
-import Card from './base/card';
+import Card from './base/old/card';
 
 interface LoginCardProps {
   email: string;
@@ -15,7 +15,9 @@ export default function LoginCard(props: LoginCardProps) {
       <div className='flex flex-col items-center justify-center space-y-4'>
         <h1 className='text-2xl font-bold'>Login</h1>
         <p className='text-gray-600'>Please enter your credentials.</p>
+        <label htmlFor='email'>Email</label>
         <input
+          id='email'
           type='email'
           placeholder='Email'
           className='px-4 py-2 border rounded w-64'
@@ -23,7 +25,9 @@ export default function LoginCard(props: LoginCardProps) {
           onChange={(e) => props.onChangeEmail(e.target.value)}
           disabled={props.status === 'loading'}
         />
+        <label htmlFor='password'>Password</label>
         <input
+          id='password'
           type='password'
           placeholder='Password'
           className='px-4 py-2 border rounded w-64'
