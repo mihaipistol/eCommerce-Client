@@ -1,11 +1,11 @@
+import Banner from '~/components/header/Banner';
+import { Welcome } from '~/components/welcome/welcome';
 import type { Route } from './+types/home';
-import { Welcome } from '../components/welcome/welcome';
-import Banner from '~/components/banner/Banner';
 
 export function meta({}: Route.MetaArgs) {
   return [
     { title: 'New React Router App' },
-    { name: 'description', content: 'Welcome to React Router!' },
+    { name: 'description', content: 'Welcome to React Router!' }
   ];
 }
 

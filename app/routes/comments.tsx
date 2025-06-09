@@ -1,6 +1,6 @@
-import CommentsBox from '~/components/base/old/CommentsBox';
+import CommentsBox from '~/components/base/CommentsBox';
 import type { Route } from './+types/form';
-import CommentsList from '~/components/base/old/CommentsList';
+import CommentsList from '~/components/base/CommentsList';
 
 export function meta({}: Route.MetaArgs) {
   return [

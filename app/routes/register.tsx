@@ -1,6 +1,6 @@
 import RegistrationCard from '~/components/forms/registration';
 import type { Route } from './+types/register';
-import Card from '~/components/base/old/card';
+import Card from '~/components/base/card';
 
 export function meta({}: Route.MetaArgs) {
   return [

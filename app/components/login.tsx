@@ -1,4 +1,4 @@
-import Card from './base/old/card';
+import Card from './base/card';
 
 interface LoginCardProps {
   email: string;

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Card from '~/components/base/old/card';
+import Card from '~/components/base/card';
 
 describe('Card', () => {
   it('renders children correctly', () => {

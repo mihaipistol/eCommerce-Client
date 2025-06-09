@@ -4,34 +4,39 @@
   --font-sans:
     'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --color-primary: #3b82f6; /* blue-500 */
-  --color-secondary: #f59e0b; /* amber-500 */
-  --color-accent: #10b981; /* emerald-500 */
-  --color-background: #f3f4f6; /* gray-100 */
-  --color-text: #111827; /* gray-900 */
-  --color-border: #d1d5db; /* gray-300 */
-  --color-muted: #6b7280; /* gray-500 */
-  --color-success: #16a34a; /* green-600 */
-  --color-warning: #d97706; /* amber-600 */
-  --color-error: #dc2626; /* red-600 */
-  --color-info: #2563eb; /* blue-600 */
-  --color-link: #3b82f6; /* blue-500 */
-  --color-link-hover: #2563eb; /* blue-600 */
-  --color-link-active: #1d4ed8; /* blue-700 */
-  --color-link-visited: #4f46e5; /* indigo-600 */
-  --color-shadow: rgba(0, 0, 0, 0.1);
-  --color-shadow-dark: rgba(0, 0, 0, 0.2);
+
+  --color-background: /* gray-200 */ #f3f4f6;
+  --color-background-reverse: /* gray-800 */ #111827;
+
+  --color-input-background: /* grey-100 */ #f3f4f6;
+  --color-input-background-reverse: /* grey-700 */ #6b7280;
+  --color-input-border: /* grey-600 */ #9ca3af;
+  --color-input-border-reverse: /* grey-200 */ #f3f4f6;
+
+  --color-select-hover: /* gray-450 */ #e5e7eb;
+  --color-select-hover-reverse: /* gray-650 */ #9ca3af;
+
+  --color-text: /* gray-900 */ #111827;
+  --color-text-reverse: /* gray-100 */ #f3f4f6;
 }
 
 @layer components {
-  .btn-primary {
-    @apply px-4 py-2 bg-primary text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:bg-muted transition-colors;
+  /* .btn-primary {
+    @apply bg-primary hover:bg-primary-hover active:bg-primary-active rounded px-4 py-2 text-white transition-colors;
   }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-hover active:bg-secondary-active rounded px-4 py-2 text-white transition-colors;
+  }
+
+  .inp-primary {
+    @apply border-border focus:ring-primary rounded border px-4 py-2 transition-colors focus:border-transparent focus:ring-2 focus:outline-none;
+  } */
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-800;
+  @apply bg-background dark:bg-background-reverse;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
