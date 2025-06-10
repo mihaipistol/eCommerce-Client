@@ -14,7 +14,9 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "build": "tsc -b && vite build",
-    "start": "vite preview"
+    "preview": "vite preview",
+    "start": "serve -s dist -n -p $PORT",
+    "start:local": "serve -s dist -n -p 5000"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
@@ -26,6 +28,7 @@
     "react-redux": "^9.2.0",
     "react-router": "^7.6.2",
     "redux": "^5.0.1",
+    "serve": "^14.2.4",
     "zod": "^3.25.56"
   },
   "devDependencies": {
