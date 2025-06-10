@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --color-background: /* gray-200 */ #f3f4f6;
+  --color-background-reverse: /* gray-800 */ #111827;
+
+  --color-input-background: /* grey-100 */ #f3f4f6;
+  --color-input-background-reverse: /* grey-700 */ #6b7280;
+  --color-input-border: /* grey-600 */ #9ca3af;
+  --color-input-border-reverse: /* grey-200 */ #f3f4f6;
+
+  --color-select-hover: /* gray-450 */ #e5e7eb;
+  --color-select-hover-reverse: /* gray-650 */ #9ca3af;
+
+  --color-text: /* gray-900 */ #111827;
+  --color-text-reverse: /* gray-100 */ #f3f4f6;
+}
+
+@layer components {
+  /* .btn-primary {
+    @apply bg-primary hover:bg-primary-hover active:bg-primary-active rounded px-4 py-2 text-white transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-hover active:bg-secondary-active rounded px-4 py-2 text-white transition-colors;
+  }
+
+  .inp-primary {
+    @apply border-border focus:ring-primary rounded border px-4 py-2 transition-colors focus:border-transparent focus:ring-2 focus:outline-none;
+  } */
+}
+
+html,
+body {
+  @apply bg-background dark:bg-background-reverse;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
