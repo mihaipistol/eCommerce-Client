@@ -14,7 +14,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "build": "tsc -b && vite build",
-    "start": "vite preview --host"
+    "start": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
