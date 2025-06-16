@@ -20,7 +20,7 @@ export default function Banner() {
 
   return (
     <>
-      <div className='flex items-center gap-4 bg-lime-600 p-4 text-white shadow-md md:hidden'>
+      <div className='flex items-center gap-4 bg-blue-500 p-4 text-white shadow-md md:hidden'>
         <NavLink to='/menu' className='flex'>
           <img
             src={isDarkMode ? menuDark : menuLight}
@@ -53,7 +53,7 @@ export default function Banner() {
           Cart
         </NavLink>
       </div>
-      <div className='flex items-center gap-4 bg-lime-600 p-4 text-white shadow-md'>
+      <div className='flex items-center gap-4 bg-blue-500 p-4 text-white shadow-md'>
         <NavLink to='/' className='hidden md:flex'>
           <img
             src={logo}

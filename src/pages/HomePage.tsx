@@ -1,8 +1,10 @@
+import { Provider } from 'react-redux';
 import Banner from '../components/header/Banner';
+import store from '../state/store';
 
 function HomePage() {
   return (
-    <>
+    <Provider store={store}>
       <header className=''>
         <Banner />
       </header>
@@ -38,7 +40,7 @@ function HomePage() {
         <div>Item 29</div>
         <div>Item 30</div>
       </main>
-    </>
+    </Provider>
   );
 }
 

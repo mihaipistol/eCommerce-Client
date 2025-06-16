@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { config } from './../config';
 import commentsReducer from './slices/comments';
+import productsReducer from './slices/products';
+import searchReducer from './slices/search';
 
 export const store = configureStore({
   reducer: {
     comments: commentsReducer,
+    products: productsReducer,
+    search: searchReducer
   },
-  devTools: config?.DEV !== undefined ? config.DEV : false,
+  devTools: config?.DEV !== undefined ? config.DEV : false
 });
 
 export type RootState = ReturnType<typeof store.getState>;
