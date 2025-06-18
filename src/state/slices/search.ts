@@ -3,39 +3,28 @@ import {
   createSlice,
   type PayloadAction
 } from '@reduxjs/toolkit';
-import { config } from '../../config';
 import axios from 'axios';
-
-interface Product {
-  id: number;
-  name: string;
-  brand: string;
-  category: string;
-  description: string;
-  price: number;
-  rating: number;
-  image: string;
-  tags: string[];
-}
+import { config } from '../../config';
+import type { Product } from '../types';
 
 interface SearchState {
-  suggestions: Product[];
+  data: Product[];
   loading: boolean;
   error: string | null;
 }
 
 const initialState: SearchState = {
-  suggestions: [],
+  data: [],
   loading: false,
   error: null
 };
 
 const searchSlice = createSlice({
-  name: 'search',
+  name: 'searchSlice',
   initialState,
   reducers: {
     setProducts: (state, action: PayloadAction<Product[]>) => {
-      state.suggestions = action.payload;
+      state.data = action.payload;
     }
   },
   extraReducers: (builder) => {

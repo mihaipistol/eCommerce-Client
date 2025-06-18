@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { config } from './../config';
 import commentsReducer from './slices/comments';
+import productReducer from './slices/product';
 import productsReducer from './slices/products';
 import searchReducer from './slices/search';
 
 export const store = configureStore({
   reducer: {
     comments: commentsReducer,
+    product: productReducer,
     products: productsReducer,
     search: searchReducer
   },

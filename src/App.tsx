@@ -6,13 +6,19 @@ import UsersPage from './pages/UsersPage';
 import WishlistPage from './pages/WishlishPage';
 import NotFound from './pages/NotFound';
 import ProfilePage from './pages/ProfilePage';
+import ProductPage from './pages/ProductPage';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/:search?',
     element: <HomePage />,
     errorElement: <NotFound />,
     index: true
+  },
+  {
+    path: '/product/:id',
+    element: <ProductPage />,
+    errorElement: <NotFound />
   },
   {
     path: '/cart',
@@ -28,7 +34,6 @@ const router = createBrowserRouter([
       }
     ]
   },
-
   {
     path: '/wishlist',
     element: <WishlistPage />
